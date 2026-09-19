@@ -1,0 +1,759 @@
+[
+  {
+    "id": "advent-calendar",
+    "label": "Advent Calendar Builder",
+    "icon": "🎄",
+    "category": "engagement",
+    "description": "Personalized Christmas countdown calendar with daily door punch-outs, luck loot drops, and streak tracking.",
+    "color": "#C41E3A",
+    "gradient": "from-red-600 to-rose-700",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/guilds"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "channelId": "",
+      "timezone": "America/New_York",
+      "startDate": "2024-12-01"
+    }
+  },
+  {
+    "id": "ai-system",
+    "label": "ai-system",
+    "icon": "🧠",
+    "category": "system",
+    "description": "Multi-model AI assistant with Gemini, OpenAI, Claude, and localized server persona knowledge.",
+    "color": "#A29BFE",
+    "gradient": "from-violet-500 to-purple-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/guilds"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "groqApiKey": "",
+      "openaiApiKey": "",
+      "geminiApiKey": "",
+      "features": {
+        "chat": {
+          "enabled": true,
+          "temperature": 0.9,
+          "maxTokens": 2048,
+          "maxHistoryLength": 20,
+          "systemPrompt": "You are FloofCore AI, an intelligent and friendly Discord assistant."
+        },
+        "imageAnalysis": {
+          "enabled": true,
+          "provider": "gemini",
+          "geminiModel": "gemini-3.6-flash"
+        },
+        "moderation": {
+          "enabled": true,
+          "confidenceThreshold": 0.75,
+          "autoAction": "none"
+        },
+        "rateLimiting": {
+          "enabled": true,
+          "messagesPerMinute": 20,
+          "tokensPerDay": 1000000
+        },
+        "modelRouting": {
+          "defaultProvider": "groq",
+          "preferFreeTier": true
+        }
+      }
+    }
+  },
+  {
+    "id": "applications",
+    "label": "Applications",
+    "icon": "📬",
+    "category": "utility",
+    "description": "Interactive staff questionnaire forms with private reviewer channels.",
+    "color": "#8B5CF6",
+    "gradient": "from-violet-600 to-purple-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/guilds"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "reviewChannelId": "",
+      "applicationTemplates": {}
+    }
+  },
+  {
+    "id": "introduction-builder",
+    "label": "Introduction Builder",
+    "icon": "👋",
+    "category": "engagement",
+    "description": "Customizable community questionnaires, Discord showcase cards, auto-role rewards, and web portal.",
+    "color": "#EC4899",
+    "gradient": "from-pink-500 to-rose-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/guilds",
+      "/api/introductions"
+    ]
+  },
+  {
+    "id": "auto-mod",
+    "label": "Auto Moderation",
+    "icon": "🔨",
+    "category": "security",
+    "description": "Anti-spam heuristics, toxic text filters, and automated warn/mute/ban actions.",
+    "color": "#EF4444",
+    "gradient": "from-rose-600 to-red-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/guilds"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "logChannelId": "",
+      "adminRoleIds": [],
+      "moderatorRoleIds": [],
+      "filters": {
+        "spam": {
+          "enabled": true,
+          "threshold": 5
+        },
+        "toxicity": {
+          "enabled": true,
+          "confidenceThreshold": 0.8
+        },
+        "links": {
+          "enabled": false,
+          "whitelist": []
+        }
+      },
+      "actions": {
+        "warn": true,
+        "mute": true,
+        "kick": false,
+        "ban": false
+      }
+    }
+  },
+  {
+    "id": "auto-revive",
+    "label": "Chat Reviver",
+    "icon": "🔥",
+    "category": "engagement",
+    "description": "Pings conversational icebreaker topics when channel activity lulls.",
+    "color": "#FB923C",
+    "gradient": "from-orange-500 to-red-500",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "channelId": "",
+      "inactivityThreshold": 3600,
+      "messages": [
+        "Let's get this chat going! 🔥",
+        "Wakey wakey! 👀"
+      ]
+    }
+  },
+  {
+    "id": "backup",
+    "label": "Backup Vault",
+    "icon": "🗄️",
+    "category": "utility",
+    "description": "Automated snapshots preserving server roles, permissions, and channel trees.",
+    "color": "#3B82F6",
+    "gradient": "from-blue-600 to-indigo-600",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "scheduleEnabled": false,
+      "intervalHours": 24,
+      "maxBackups": 5,
+      "includeMessages": false
+    }
+  },
+  {
+    "id": "birthdays",
+    "label": "Birthday Celebrations",
+    "icon": "🎂",
+    "category": "engagement",
+    "description": "Automated member birthday wishes with canvas banners, zodiac signs, and celebration buttons.",
+    "color": "#EC4899",
+    "gradient": "from-pink-500 to-rose-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/guilds"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "announcementChannelId": "",
+      "birthdayRoleId": "",
+      "roleDurationHours": 24,
+      "announcementHour": 9,
+      "defaultTimezone": "UTC",
+      "pingUser": true,
+      "allowAgeDisplay": true,
+      "rewards": {
+        "enabled": true,
+        "birthdayCoins": 250
+      },
+      "embed": {
+        "color": "#FF69B4",
+        "footer": "🎂 Celebrating another wonderful year with our community!"
+      },
+      "messages": [
+        "🎉 Happy Birthday {user}!"
+      ]
+    }
+  },
+  {
+    "id": "channel-stats",
+    "label": "Channel Stats",
+    "icon": "📈",
+    "category": "utility",
+    "description": "Dynamic voice channel status counters for live server members, bots, and online count.",
+    "color": "#48DBFB",
+    "gradient": "from-cyan-400 to-blue-500",
+    "defaultSchema": {
+      "enabled": true,
+      "updateIntervalMinutes": 10,
+      "counters": []
+    }
+  },
+  {
+    "id": "core-commands",
+    "label": "Core Commands",
+    "icon": "🛠️",
+    "category": "system",
+    "description": "Essential administrative, latency, diagnostics, and management slash commands.",
+    "color": "#F8C291",
+    "gradient": "from-amber-400 to-orange-500",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/modules/core-commands"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "adminRoleIds": [],
+      "modRoleIds": [],
+      "logChannelId": ""
+    }
+  },
+  {
+    "id": "discord-status-monitor",
+    "label": "Discord Status Monitor",
+    "icon": "📶",
+    "category": "utility",
+    "description": "Monitors the official Discord API status page for incidents and sends alerts.",
+    "color": "#48DBFB",
+    "gradient": "from-cyan-500 to-blue-600",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "alertChannelId": "",
+      "webhookUrl": "",
+      "pingRoleId": "",
+      "monitorTypes": [
+        "incidents",
+        "maintenances"
+      ]
+    }
+  },
+  {
+    "id": "economy-builder",
+    "label": "Economy Builder",
+    "icon": "💰",
+    "category": "engagement",
+    "description": "Advanced custom items, dynamic market stock prices, and casino games.",
+    "color": "#059669",
+    "gradient": "from-emerald-700 to-teal-700",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "currencyName": "coins",
+      "currencySymbol": "🪙",
+      "dailyReward": 100,
+      "weeklyReward": 500,
+      "logChannelId": ""
+    }
+  },
+  {
+    "id": "embed-builder",
+    "label": "Embed & Announcement Builder",
+    "icon": "✨",
+    "category": "utility",
+    "description": "Visual embed studio with real-time Discord preview, drafts, action row buttons, and direct channel publishing.",
+    "color": "#8B5CF6",
+    "gradient": "from-violet-600 to-indigo-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/embed-builder"
+    ],
+    "defaultSchema": {
+      "enabled": true
+    }
+  },
+  {
+    "id": "game-host-check",
+    "label": "Game Host Check",
+    "icon": "🎮",
+    "category": "utility",
+    "description": "Ping and verify uptime for dedicated game servers (Minecraft, ARK, Rust, Palworld).",
+    "color": "#10B981",
+    "gradient": "from-emerald-500 to-teal-600",
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api",
+      "/api/guilds"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "servers": [],
+      "statusChannelId": "",
+      "checkIntervalMinutes": 5
+    }
+  },
+  {
+    "id": "giveaway-manager",
+    "label": "Giveaways & Sweepstakes",
+    "icon": "🎁",
+    "category": "engagement",
+    "description": "Interactive button-based giveaway roll engine with reroll and requirements.",
+    "color": "#F43F5E",
+    "gradient": "from-rose-500 to-pink-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/giveaway"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "defaultDuration": 86400,
+      "defaultWinners": 1,
+      "requiredRoleId": "",
+      "logChannelId": ""
+    }
+  },
+  {
+    "id": "guild-center",
+    "label": "Guild Center Hub",
+    "icon": "🏛️",
+    "category": "utility",
+    "description": "Centralized multi-guild administration and broadcast message routing engine.",
+    "color": "#9B59B6",
+    "gradient": "from-purple-600 to-violet-700",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/guilds"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "hubChannelId": "",
+      "hubEmbedColor": "#9B59B6",
+      "hubEmbedTitle": "Welcome",
+      "layoutMode": "components_v2",
+      "hubButtons": [],
+      "rules": [],
+      "roles": []
+    }
+  },
+  {
+    "id": "guild-logging",
+    "label": "Audit Logging",
+    "icon": "📋",
+    "category": "utility",
+    "description": "Detailed event logs for message edits, channel creations, and voice moves.",
+    "color": "#64748B",
+    "gradient": "from-slate-600 to-gray-700",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "logChannelId": "",
+      "events": {
+        "messageDelete": true,
+        "messageEdit": true,
+        "memberJoin": true,
+        "memberLeave": true,
+        "roleUpdate": true,
+        "channelUpdate": true,
+        "voiceMove": true,
+        "ban": true,
+        "kick": true
+      }
+    }
+  },
+  {
+    "id": "honeypot",
+    "label": "Honeypot Trap",
+    "icon": "🍯",
+    "category": "security",
+    "description": "Hidden channel traps that instantly detect, isolate, and ban user-bot scrapers.",
+    "color": "#F59E0B",
+    "gradient": "from-amber-600 to-orange-600",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "trapChannelId": "",
+      "logChannelId": "",
+      "banOnTrigger": true,
+      "alertRoleId": ""
+    }
+  },
+  {
+    "id": "leveling",
+    "label": "Leveling & XP Engine",
+    "icon": "🏆",
+    "category": "engagement",
+    "description": "Chat message XP points, voice activity rewards, and customizable rank cards.",
+    "color": "#EAB308",
+    "gradient": "from-yellow-500 to-amber-600",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "xpPerMessage": 15,
+      "xpCooldownSeconds": 60,
+      "levelUpChannelId": "",
+      "levelUpMessage": "🎉 {user} leveled up to level {level}!",
+      "noXpRoleIds": [],
+      "noXpChannelIds": []
+    }
+  },
+  {
+    "id": "link-embedder",
+    "label": "Link Embedder",
+    "icon": "🔗",
+    "category": "utility",
+    "description": "Auto-embeds social links (TikTok, Twitter/X, Instagram, Reddit) into seamless media previews.",
+    "color": "#00CEC9",
+    "gradient": "from-teal-500 to-cyan-600",
+    "defaultSchema": {
+      "enabled": true,
+      "supportedPlatforms": {
+        "tiktok": true,
+        "twitter": true,
+        "instagram": true,
+        "reddit": true
+      }
+    }
+  },
+  {
+    "id": "mindscape-rpg",
+    "label": "Mindscape RPG",
+    "icon": "🌙",
+    "category": "engagement",
+    "description": "Gamify mental wellness, push back the fog, practice daily life skills, and nurture your inner sanctuary.",
+    "color": "#A29BFE",
+    "gradient": "from-violet-500 to-purple-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/guilds"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "logChannelId": "",
+      "adminRoleIds": []
+    }
+  },
+  {
+    "id": "music",
+    "label": "Neural Voice Player",
+    "icon": "🎶",
+    "category": "engagement",
+    "description": "Voice channel audio streamer with queue management and custom DSP filters.",
+    "color": "#EC4899",
+    "gradient": "from-pink-600 to-rose-600",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": false,
+      "defaultVolume": 50,
+      "maxQueueSize": 100,
+      "leaveOnEmpty": true,
+      "leaveOnEmptyDelay": 30
+    }
+  },
+  {
+    "id": "nekos-best-socials-gifs",
+    "label": "Anime Socials & GIFs",
+    "icon": "😊",
+    "category": "engagement",
+    "description": "Interactive anime reaction GIFs (hugs, pats, slaps, kisses, dances) powered by nekos.best.",
+    "color": "#FFA07A",
+    "gradient": "from-pink-400 to-orange-400",
+    "defaultSchema": {
+      "enabled": true
+    }
+  },
+  {
+    "id": "plant-a-tree",
+    "label": "Plant A Tree",
+    "icon": "🌳",
+    "category": "engagement",
+    "description": "Interactive virtual reforestation mini-game and global eco leaderboard.",
+    "color": "#22C55E",
+    "gradient": "from-green-500 to-emerald-600",
+    "defaultSchema": {
+      "enabled": true,
+      "logChannelId": "",
+      "treesPerMessage": 1
+    }
+  },
+  {
+    "id": "poll-system",
+    "label": "Poll System",
+    "icon": "🗳️",
+    "category": "engagement",
+    "description": "Rich Discord interactive voting polls with multiple choice and timers.",
+    "color": "#06B6D4",
+    "gradient": "from-cyan-500 to-blue-600",
+    "defaultSchema": {
+      "enabled": true,
+      "defaultDuration": 3600,
+      "maxOptions": 10,
+      "logChannelId": ""
+    }
+  },
+  {
+    "id": "product-panel",
+    "label": "Product Panel",
+    "icon": "🛍️",
+    "category": "utility",
+    "description": "Server store & product showcase panel with Discord buttons and delivery workflows.",
+    "color": "#EC4899",
+    "gradient": "from-pink-500 to-rose-600",
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "storeChannelId": "",
+      "currency": "coins",
+      "products": []
+    }
+  },
+  {
+    "id": "qr-code-maker",
+    "label": "QR Code Maker",
+    "icon": "🔳",
+    "category": "utility",
+    "description": "Generate high-resolution custom QR codes for URLs, WiFi credentials, and crypto addresses.",
+    "color": "#EE5A24",
+    "gradient": "from-orange-500 to-red-600",
+    "defaultSchema": {
+      "enabled": true,
+      "defaultSize": 300,
+      "defaultErrorCorrection": "M"
+    }
+  },
+  {
+    "id": "reputation",
+    "label": "Reputation System",
+    "icon": "⭐",
+    "category": "engagement",
+    "description": "Peer-to-peer appreciation rating and member commendation leaderboard.",
+    "color": "#EAB308",
+    "gradient": "from-yellow-500 to-orange-500",
+    "defaultSchema": {
+      "enabled": true,
+      "cooldownHours": 24,
+      "maxRepsPerDay": 3,
+      "logChannelId": ""
+    }
+  },
+  {
+    "id": "streamer-notifications",
+    "label": "Streamer Live Alerts",
+    "icon": "📺",
+    "category": "engagement",
+    "description": "Automated live stream alerts for Twitch, YouTube, and Kick creators.",
+    "color": "#9333EA",
+    "gradient": "from-purple-600 to-violet-700",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "channelId": "",
+      "mentionRoleId": "",
+      "liveMessage": "🔴 {streamer} is now live on {platform}! {url}"
+    }
+  },
+  {
+    "id": "suggestions",
+    "label": "Suggestions Box",
+    "icon": "💡",
+    "category": "engagement",
+    "description": "Community suggestion submission thread with staff upvoting & decision triage.",
+    "color": "#FACC15",
+    "gradient": "from-yellow-400 to-amber-500",
+    "defaultSchema": {
+      "enabled": true,
+      "channelId": "",
+      "staffRoleId": "",
+      "allowAnonymous": false
+    }
+  },
+  {
+    "id": "temp-voice",
+    "label": "Temp Voice Hubs",
+    "icon": "🎙️",
+    "category": "utility",
+    "description": "Dynamic join-to-create voice channels with custom owner controls.",
+    "color": "#14B8A6",
+    "gradient": "from-teal-500 to-emerald-600",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "triggerChannels": [],
+      "channelNameTemplate": "{username}'s Voice",
+      "defaultBitrate": 0,
+      "userLimit": 0,
+      "userRoleId": null,
+      "adminRoleIds": [],
+      "modRoleIds": [],
+      "autoDeleteEmpty": true,
+      "transferOnOwnerLeave": true,
+      "defaultLockState": false,
+      "allowNsfw": true,
+      "tts": {
+        "enabled": true,
+        "provider": "google",
+        "voice": "en"
+      },
+      "afk": {
+        "enabled": true,
+        "timeout": 300,
+        "deafenTimeout": 300,
+        "requireDeafened": true,
+        "action": "afk_room",
+        "exemptOwner": false,
+        "exemptMods": true
+      }
+    }
+  },
+  {
+    "id": "tickets",
+    "label": "Support Tickets",
+    "icon": "🎟️",
+    "category": "utility",
+    "description": "Private support channel creation, staff triage, and HTML transcript exports.",
+    "color": "#06B6D4",
+    "gradient": "from-cyan-600 to-teal-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/tickets"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "panelChannelId": "",
+      "transcriptChannelId": "",
+      "staffRoleId": "",
+      "adminRoleId": "",
+      "categoryId": "",
+      "closeOnInactiveHours": 48,
+      "pingStaffOnOpen": true
+    }
+  },
+  {
+    "id": "timed-channels",
+    "label": "Timed Channels",
+    "icon": "🌙",
+    "category": "utility",
+    "description": "Automated day & night chat switching, after-hours locks, and interactive dashboard toggles.",
+    "color": "#F59E0B",
+    "gradient": "from-amber-500 to-orange-600",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "timezone": "America/New_York",
+      "channels": []
+    }
+  },
+  {
+    "id": "webhook-center",
+    "label": "Webhook Center",
+    "icon": "🔗",
+    "category": "utility",
+    "description": "Compose and dispatch custom rich embeds directly to Discord channels.",
+    "color": "#8B5CF6",
+    "gradient": "from-violet-600 to-indigo-600",
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/guilds"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "webhooks": []
+    }
+  },
+  {
+    "id": "welcome-goodbye",
+    "label": "Welcome & Goodbye",
+    "icon": "🎉",
+    "category": "engagement",
+    "description": "Custom canvas card banners and greetings dispatched on member joins/leaves.",
+    "color": "#6366F1",
+    "gradient": "from-indigo-600 to-violet-600",
+    "hasCustomComponent": true,
+    "defaultSchema": {
+      "enabled": true,
+      "welcome": {
+        "enabled": true,
+        "channelId": "",
+        "message": "Welcome {user} to {server}!",
+        "embed": {
+          "color": "#6366F1"
+        }
+      },
+      "goodbye": {
+        "enabled": true,
+        "channelId": "",
+        "message": "Goodbye {user}!"
+      }
+    }
+  },
+  {
+    "id": "star-board",
+    "label": "Starboard",
+    "icon": "⭐",
+    "category": "engagement",
+    "description": "Pin memorable messages to a dedicated starboard channel when they receive star reactions.",
+    "color": "#F59E0B",
+    "gradient": "from-amber-500 to-yellow-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": false,
+    "defaultSchema": {
+      "enabled": true,
+      "threshold": 3,
+      "channelId": ""
+    }
+  },
+  {
+    "id": "test-showcase",
+    "label": "Test Showcase",
+    "icon": "🧪",
+    "category": "utility",
+    "description": "A fully featured demo module showing how modules appear in the FLM Reborn 2.0 Marketplace — complete with art, reviews, versioning, and config schema.",
+    "color": "#6366F1",
+    "gradient": "from-indigo-500 to-violet-600",
+    "hasCustomComponent": true,
+    "hasCustomRoutes": true,
+    "routePrefixes": [
+      "/api/showcase"
+    ],
+    "defaultSchema": {
+      "enabled": true,
+      "announcementChannelId": "",
+      "cooldownSeconds": 30
+    }
+  }
+]
