@@ -1,0 +1,1 @@
+import{Mr as e,jr as t}from"./tablerFallback-B6JeaIuN.js";import{b as n}from"./index-JXvjQH8f.js";e();var r=t(),i=e=>(0,r.jsx)(n,{...e});export{i as ModuleDashboardPage,i as default};
